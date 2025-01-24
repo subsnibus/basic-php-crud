@@ -1,0 +1,37 @@
+body {
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+h1, h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+table {
+    width: 100%;
+    margin-top: 20px;
+}
+th, td {
+    text-align: center;
+    padding: 10px;
+}
+th {
+    background-color: #007bff;
+    color: white;
+}
+td {
+    background-color: #ffffff;
+}
+form {
+    margin-bottom: 20px;
+}
+.form-inline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-inline input, .form-inline button {
+    margin: 5px;
+}
+.btn {
+    margin: 5px;
+}

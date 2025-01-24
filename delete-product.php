@@ -12,5 +12,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST['product_id'])) {
     header("Location: index.php");
 } else {
     echo "No product ID provided.";
+    // **TASK FOR YOU**: Display the error message on an alert box on the page as we did in the login.php file.
+
 }
 ?>

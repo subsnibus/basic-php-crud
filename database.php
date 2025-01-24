@@ -25,6 +25,12 @@ class Database {
         return $this->conn;
     }
 
+    public function countRows($query, $params = []) {
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute($params);
+        return $stmt->rowCount(); // returns the number of affected rows
+    }
+
     public function select($query, $params = []) {
         $stmt = $this->conn->prepare($query);
         $stmt->execute($params);

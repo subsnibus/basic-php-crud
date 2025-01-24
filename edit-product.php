@@ -22,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header("Location: index.php"); //redirect the process to index.php
         exit;
     }
+    // **TASK FOR YOU**: Display the error message on an alert box on the page as we did in the login.php file.
 }
 ?>
 <div class="container">

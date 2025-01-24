@@ -1,12 +1,14 @@
 <?php
-// session_start();
+// ***Before viewing this file, make sure you visit the login.php and register.php files to understand the login and registration process using session. ***
+session_start();
+// Check if user is logged in
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit;
+}
+
 require 'database.php'; // Include your database connection file
 require 'partial/header.php'; // Include your header file
-// Check if user is logged in
-// if (!isset($_SESSION['user_id'])) {
-//     echo "You need to log in to access this page.";
-//     exit;
-// }
 ?>
 <div class="container">
     <h1>Product Management</h1>
@@ -59,6 +61,10 @@ require 'partial/header.php'; // Include your header file
                     <?php endforeach; ?>
                 </tbody>
             </table>
+            <div class="user-info">
+                <p class="d-inline">Logged in as: <?= $_SESSION['user_name'] ?? 'N/A'; ?></p>
+                <a href="logout.php" class="btn btn-secondary btn-sm d-inline">Logout</a>
+            </div>
         </div>
     </div>
 </div>

@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($product_name && $product_description && $product_price) {
         $conn = new Database();
-        $returnData = $conn->create("INSERT INTO products (title, description, price) VALUES (?, ?, ?)", [$product_name, $product_description, $product_price]);
+        $conn->create("INSERT INTO products (title, description, price) VALUES (?, ?, ?)", [$product_name, $product_description, $product_price]);
         header("Location: index.php"); //redirect the process to index.php
         exit;
     }

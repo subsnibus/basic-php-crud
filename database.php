@@ -26,9 +26,9 @@ class Database {
     }
 
     public function select($query, $params = []) {
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute($params);
-        return $stmt->fetchAll(); // fetchAll() returns an array of all rows
+        $qry = $this->conn->prepare($query); // SELECT * FROM products WHERE id = ?;
+        $qry->execute($params); // SELECT * FROM products WHERE id = 1;
+        return $qry->fetchAll(); // fetchAll() returns an array of all rows
     }
 
     public function create($query, $params = []) {

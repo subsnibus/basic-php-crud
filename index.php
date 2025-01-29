@@ -32,15 +32,15 @@ require 'partial/header.php'; // Include your header file
                 $db = new Database();
                 $products = $db->select("SELECT * FROM products");
                 $i=1; // Initialize the counter variable for the serial number
-                foreach ($products as $product): ?>
+                foreach ($products as $p): ?>
                     <tr>
                         <td><?= $i++; ?></td> <!-- Increment the counter variable -->
-                        <td><?= $product['title']; ?></td> <!-- Access the product name from the $product array -->
-                        <td><?= $product['price']; ?></td> <!-- Access the product price from the $product array -->
+                        <td><?= $p['title']; ?></td> <!-- Access the product name from the $product array -->
+                        <td><?= $p['price']; ?></td> <!-- Access the product price from the $product array -->
                         <td>
                             <!-- The `<a>` tag is creating a hyperlink that directs the user to the "edit-product.php" page with a specific
                             product ID appended as a query parameter in the URL. We can access such input by using $_GET['id'] in the "edit-product.php" page. -->
-                            <a href="edit-product.php?id=<?= $product['id']; ?>" class="btn btn-primary btn-sm">Update</a>
+                            <a href="edit-product.php?id=<?= $p['id']; ?>" class="btn btn-primary btn-sm">Update</a>
 
 
                             <!-- The provided HTML form is used to delete a product entry from the
@@ -51,7 +51,7 @@ require 'partial/header.php'; // Include your header file
                             - A button with the class "btn btn-danger btn-sm" is used to submit the form and trigger the deletion process.
                             -->
                             <form method="POST" action="delete-product.php" style="display:inline;">
-                                <input type="hidden" name="product_id" value="<?= $product['id']; ?>">
+                                <input type="hidden" name="product_id" value="<?= $p['id']; ?>">
                                 <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                             </form>
                         </td>

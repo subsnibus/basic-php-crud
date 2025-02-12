@@ -30,7 +30,8 @@ function storeProduct(e) {
     .then(data => {
         if (data.success) {
             alert(data.message); // Show success message
-            window.location.href = "index.php"; // Redirect after success
+            document.getElementById("create-product-form").reset(); // Clear form
+            // window.location.href = "index.php"; // Redirect after success
         } else {
             alert("Error: " + data.message); // Show error message
         }

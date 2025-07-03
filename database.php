@@ -1,5 +1,4 @@
 <?php
-
 class Database {
     private $host = 'localhost';
     private $db_name = 'basic-php-crud';
@@ -14,10 +13,10 @@ class Database {
     // Constructor: function that runs automatically when an object is created
     public function __construct() {
         try {
-            $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->username, $this->password, $this->options);
+            $this->conn = new PDO("mysql:host={$this->host};dbname={$this->db_name}", $this->username, $this->password, $this->options);
             // new PDO("mysql:host=localhost;dbname=basic-php-crud, root, ''"); This is the same as the line above, shown for better understanding
-        } catch (\PDOException $e) {
-            throw new \PDOException($e->getMessage(), (int)$e->getCode());
+        } catch (PDOException $e) {
+            throw new PDOException($e->getMessage(), (int)$e->getCode());
         }
     }
 
